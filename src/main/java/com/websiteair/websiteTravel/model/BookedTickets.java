@@ -9,47 +9,44 @@ import javax.persistence.Table;
 @Table(name = "booked_tickets")
 public class BookedTickets {
     @Id
-    @Column (name = "recording_id", length = 80)
-    private String recordingId;
+    @Column(name = "recording_id", length = 80)
+    private Integer recordingId;
     @Column(name = "flight_id", length = 80)
-    private String flightId;
-    @Column (name = "booked_tickets", length = 80)
-    private String bookedTickets;
-    @Column (name = "class_ticket",length = 80)
+    private Integer flightId;
+    @Column(name = "booked_tickets", length = 80)
+    private Integer bookedTickets;
+    @Column(name = "class_ticket", length = 80)
     private String classTickets;
+    private static int countId;
 
-    public BookedTickets(String recordingId, String flightId, String bookedTickets, String classTickets) {
+    public BookedTickets(Integer recordingId, Integer flightId, int bookedTickets, String classTickets) {
         this.recordingId = recordingId;
         this.flightId = flightId;
         this.bookedTickets = bookedTickets;
         this.classTickets = classTickets;
     }
 
-    public BookedTickets() {
-
-    }
-
-    public String getRecordingId() {
+    public Integer getRecordingId() {
         return recordingId;
     }
 
-    public void setRecordingId(String recordingId) {
+    public void setRecordingId(Integer recordingId) {
         this.recordingId = recordingId;
     }
 
-    public String getFlightId() {
+    public Integer getFlightId() {
         return flightId;
     }
 
-    public void setFlightId(String flightId) {
+    public void setFlightId(Integer flightId) {
         this.flightId = flightId;
     }
 
-    public String getBookedTickets() {
+    public int getBookedTickets() {
         return bookedTickets;
     }
 
-    public void setBookedTickets(String bookedTickets) {
+    public void setBookedTickets(Integer bookedTickets) {
         this.bookedTickets = bookedTickets;
     }
 
@@ -59,5 +56,17 @@ public class BookedTickets {
 
     public void setClassTickets(String classTickets) {
         this.classTickets = classTickets;
+    }
+
+    public static int getCountId() {
+        return countId;
+    }
+
+    public static void setCountId(int countId) {
+        BookedTickets.countId = countId;
+    }
+
+    public BookedTickets() {
+
     }
 }
