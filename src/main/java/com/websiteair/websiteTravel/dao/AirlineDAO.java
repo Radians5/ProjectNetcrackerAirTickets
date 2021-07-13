@@ -12,8 +12,4 @@ public class AirlineDAO {
     public AirlineDAO(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-
-//    public List<Airline> getAirId(String city){
-//        return jdbcTemplate.query("SELECT*FROM Airline where city =?",new BeanPropertyRowMapper<>(Airline.class),city);
-//    }
 }

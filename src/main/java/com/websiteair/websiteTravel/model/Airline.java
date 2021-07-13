@@ -3,8 +3,10 @@ package com.websiteair.websiteTravel.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "airline")
 public class Airline {
     @Id
     @Column(name = "id_airline")

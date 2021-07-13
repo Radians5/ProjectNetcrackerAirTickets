@@ -18,4 +18,5 @@ public class BookedTicketsDAO {
     public void booked(BookedFlightRequest request){
         jdbcTemplate.update("INSERT INTO booked_tickets VALUES(default ,?,?,?)",request.getFlightId(),request.getQuantity(),request.getClassTickets());
     }
+
 }

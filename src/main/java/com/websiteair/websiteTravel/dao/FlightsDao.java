@@ -2,7 +2,6 @@ package com.websiteair.websiteTravel.dao;
 
 import com.websiteair.websiteTravel.model.Flight;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -15,7 +14,7 @@ public class FlightsDao {
     @Autowired
     private final JdbcTemplate jdbcTemplate;
 
-
+    DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
     public FlightsDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
@@ -28,8 +27,8 @@ public class FlightsDao {
                                 "                ::timestamp",(rs,rowNum)->{
         Flight flight = new Flight();
         flight.setFlightId(rs.getInt("flight_id"));
-        flight.setDepartureDate(rs.getTimestamp("departure_date").toLocalDateTime());
-        flight.setArrivalDate(rs.getTimestamp("arrival_date").toLocalDateTime());
+        flight.setDepartureDate(LocalDateTime.parse(rs.getTimestamp("departure_date").toLocalDateTime().format(formatter)));
+        flight.setArrivalDate(LocalDateTime.parse(rs.getTimestamp("arrival_date").toLocalDateTime().format(formatter)));
         flight.setTotalNunOfPassFirst(rs.getInt("total_num_of_passengers_first_class"));
         flight.setTotalNunOfPassSecond(rs.getInt("total_num_of_passengers_second_class"));
         flight.setTotalNunOfPassThird(rs.getInt("total_num_of_passengers_third_class"));
