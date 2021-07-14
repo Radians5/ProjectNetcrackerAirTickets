@@ -7,33 +7,59 @@ import javax.persistence.Id;
 @Entity
 public class Airline {
     @Id
-    @Column (name = "id_airline", length = 80)
-    private String idAirline;
-    @Column (name = "airline_name", length = 80)
-    private String ailineName;
-
-    public Airline(String idAirline, String ailineName) {
-        this.idAirline = idAirline;
-        this.ailineName = ailineName;
-    }
+    @Column(name = "id_airline")
+    private Integer idAirline;
+    @Column(name = "airline_name")
+    private String airlineName;
+    @Column(name = "city")
+    private String city;
+    @Column(name = "country")
+    private String country;
 
     public Airline() {
 
     }
 
-    public String getIdAirline() {
+    public Integer getIdAirline() {
         return idAirline;
     }
 
-    public void setIdAirline(String idAirline) {
+    public void setIdAirline(Integer idAirline) {
         this.idAirline = idAirline;
     }
 
-    public String getAilineName() {
-        return ailineName;
+    public String getAirlineName() {
+        return airlineName;
     }
 
-    public void setAilineName(String ailineName) {
-        this.ailineName = ailineName;
+    public void setAirlineName(String airlineName) {
+        this.airlineName = airlineName;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public Airline(Integer idAirline, String airlineName, String city, String country) {
+        this.idAirline = idAirline;
+        this.airlineName = airlineName;
+        this.city = city;
+        this.country = country;
+    }
+
+    public Airline(Integer idAirline) {
+
     }
 }
