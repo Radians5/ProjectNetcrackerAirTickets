@@ -1,4 +1,4 @@
-package com.websiteair.websiteTravel.controller;
+package com.websiteair.websiteTravel.request;
 
 
 import lombok.Data;

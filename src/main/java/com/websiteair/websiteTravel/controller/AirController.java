@@ -40,6 +40,6 @@ public class AirController {
     public BookedTickets bookingFlights(@RequestBody BookedFlightRequest request) {
        TicketService ticketService = new TicketService(flightsDao,airlineDAO, bookedTicketsDAO,ticketPriceDAO);
        ticketService.booked(request);
-        return null;//статус код
+        return null;
     }
 }

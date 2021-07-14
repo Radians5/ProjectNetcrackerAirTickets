@@ -4,7 +4,7 @@ import com.websiteair.websiteTravel.dao.AirlineDAO;
 import com.websiteair.websiteTravel.dao.BookedTicketsDAO;
 import com.websiteair.websiteTravel.dao.FlightsDao;
 import com.websiteair.websiteTravel.dao.TicketPriceDAO;
-import com.websiteair.websiteTravel.exception.ApiRequestException;
+import com.websiteair.websiteTravel.exception.TicketsAreOut;
 import com.websiteair.websiteTravel.model.Flight;
 import com.websiteair.websiteTravel.request.BookedFlightRequest;
 import com.websiteair.websiteTravel.request.GetFlightsRequest;
@@ -43,8 +43,7 @@ public class TicketService {
     }
     public synchronized void booked(BookedFlightRequest request){
         if (ticketPriceDAO.getTicketInf(request.getFlightId()).getRemainingAmount()<request.getQuantity()){
-            ApiRequestException apiRequestException = new ApiRequestException("error, tickets have run out, booking is not possible");
-            apiRequestException.initCause(new IndexOutOfBoundsException());
+                throw new TicketsAreOut("");
         } else
             bookedTicketsDAO.booked(request);
             ticketPriceDAO.update(request,ticketPriceDAO.getTicketInf(request.getFlightId()));

@@ -1,5 +1,6 @@
-package com.websiteair.websiteTravel.config;
+package com.websiteair.websiteTravel.service;
 
+import com.websiteair.websiteTravel.config.CustomUserDetails;
 import com.websiteair.websiteTravel.model.UserEntity;
 import com.websiteair.websiteTravel.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
